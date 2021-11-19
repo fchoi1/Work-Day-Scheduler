@@ -5,7 +5,7 @@ var dailytask = []; // { date: [time: [ taskName:   ]]}
 
 var workHours = ['9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM']; // Create array for work hours
 
-const paragraphClass = "event-text small text-left my-1 font-weight-light";
+const paragraphClass = "event-text small text-left my-1 font-weight-light text-body";
 const textAreaCreateClass = "event-text-area create-text-area small form-control-sm border border-dark rounded my-1";
 const textAreaEditClass = "event-text-area form-control-sm small border border-dark rounded my-1";
 
@@ -26,17 +26,17 @@ var createTimeBlock = function(){
 
         // Time Display Element
         let timeBlockTitleEl = $("<span>").text(hour);
-        timeBlockTitleEl.addClass("col-2 hour p-3");
+        timeBlockTitleEl.addClass("col-12 col-md-2 col-lg-1 hour p-3");
 
         // Main Info Element and Main Text Area for creating new tasks
-        let eventInfoBlockEl = $("<div>").addClass("event-info-area col-8 d-flex flex-column justify-content-end");
+        let eventInfoBlockEl = $("<div>").addClass("event-info-area col-12 col-md-9 col-lg-10 d-flex flex-column justify-content-end");
         let eventInfoBlockTextEl = $("<textarea>").addClass(textAreaCreateClass); // For inputting events on that hour
         eventInfoBlockTextEl.attr("placeholder", "Submit New Task Details");
 
         eventInfoBlockEl.append(eventInfoBlockTextEl);
         
         // Button elemet
-        let saveEventEl = $("<button>").addClass("btn saveBtn col-2");
+        let saveEventEl = $("<button>").addClass("btn saveBtn col-12 col-md-1");
         saveEventEl.html("<i class='bi bi-save'></i>");
 
         timeBlockEl.append(timeBlockTitleEl,eventInfoBlockEl,saveEventEl);
