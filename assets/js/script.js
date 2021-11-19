@@ -162,11 +162,16 @@ var editTaskHandler = function(){
     textInput.focus();
 }
 
+// Used to update and color code tasks every 30 mins
+setInterval(function(){
+    $(".time-block").each(function(index,el){
+        updateTimeBlock(el);
+    });
+  }, (1000 * 60) *30); // 30 mins in seconds
+
+// Allow to edit tasks
 $(".container").on("click", ".event-text", editTaskHandler);
 
-
-// When element value changes
-//$(".list-group").on("change", "input[type='text']", function(){
 
 // Saving new/edited events button
 $(".container").on("click", ".saveBtn", saveButtonHandler);
