@@ -181,6 +181,17 @@ var updateTimeBlockDate = function(date){
     });
 }
 
+var createDailyTaskArray = function(date){
+    // Create new array if new it doesn't exist:
+    if(!dailytask[date] ){
+        dailytask[date] = {};
+        for (hour of workHours){  
+            dailytask[date][hour] = [];
+        }
+        console.log("No entry exist, need to create")
+    }
+}
+
 // Used to update and color code tasks every 30 mins
 setInterval(function(){
     $(".time-block").each(function(index,el){
@@ -196,14 +207,8 @@ $("#nextDay").on("click", function(){
     currentDateString = moment(currentDateString, '"dddd MMMM Do YYYY"')
         .add(1,'d')
         .format("dddd MMMM Do YYYY");
-    // Create new array if new it doesn't exist:
-    if(!dailytask[currentDate] ){
-        dailytask[currentDate] = {};
-        for (hour of workHours){  
-            dailytask[currentDate][hour] = [];
-        }
-        console.log("No entry exist, need to create")
-    }
+
+    createDailyTaskArray(currentDate);
     updateTimeBlockDate(currentDate);
     $("#currentDay").text(currentDateString); // Update current date
     createEventTasks(dailytask);
@@ -216,6 +221,7 @@ $("#previousDay").on("click", function(){
     currentDateString = moment(currentDateString, '"dddd MMMM Do YYYY"')
         .subtract(1,'d')
         .format("dddd MMMM Do YYYY");
+    createDailyTaskArray(currentDate);
     updateTimeBlockDate(currentDate);
     $("#currentDay").text(currentDateString); // Update current date
     createEventTasks(dailytask);
