@@ -12,7 +12,7 @@ Made using HTML, CSS, and Javascript with a focus on Bootstrap, JQuery
 
 ## How to use the password generator
 
-1. The current day is displayed:
+1. The current day is displayed, you can now add tasks on different days and the data saves!:
 
     <img src="./assets/images/step1.png" width="500">
 
@@ -41,6 +41,7 @@ Made using HTML, CSS, and Javascript with a focus on Bootstrap, JQuery
 4. You can remove tasks by clearing the event info! (Don't forget to save changed tasks!)
 
     <img src="./assets/images/step5a.png" width="600">
+    
     <img src="./assets/images/step5b.png" width="600">
 
 
